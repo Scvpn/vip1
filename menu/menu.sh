@@ -108,8 +108,8 @@ clear
 ###########- END COLOR CODE -##########
 tram=$( free -h | awk 'NR==2 {print $2}' )
 uram=$( free -h | awk 'NR==2 {print $3}' )
-ISP=$(cat /root/.isp)
-CITY=$(cat /root/.city)
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+CITY=$(curl -s ipinfo.io/city )
 # Getting CPU Information
 cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
@@ -266,6 +266,7 @@ echo -e "${BICyan} │  ${BICyan}RAM       :  ${BIYellow}$totalram MB${NC}"
 echo -e "${BICyan} │  ${BICyan}SWAP RAM  :  ${BIYellow}$uram / $tram MB${NC}"
 echo -e "${BICyan} │  ${BICyan}IP-VPS    :  ${BIYellow}$IPVPS${NC}"
 echo -e "${BICyan} │  ${BICyan}REBOOT    :  ${BIYellow}00:00 ( Jam 12 malam )${NC}"
+echo -e "${BICyan} │  ${BICyan}AUTHOR    :  ${BIYellow}DansVpnStore${NC}"
 echo -e "${BICyan} └─────────────────────────────────────────────────────┘${NC}"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}" 
 echo -e "${BICyan} │  ${BIYellow}SSH         VMESS           VLESS          TROJAN $NC" 
