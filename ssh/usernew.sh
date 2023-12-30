@@ -101,7 +101,7 @@ echo -e "📅Expired On  : $exp" | tee -a /etc/log-create-user.log
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "🔰IP          : $IP" | tee -a /etc/log-create-user.log
 echo -e "🔰Host        : $domen" | tee -a /etc/log-create-user.log
-echo -e "🔰NS DOMAIN   : $sldomain" | tee -a /etc/log-create-user.log
+echo -e "🔰Nameserver  : $sldomain" | tee -a /etc/log-create-user.log
 echo -e "🔰SERVER PUB  : $slkey" | tee -a /etc/log-create-user.log
 echo -e "🔰PORT SLWDNS : 443,80,53" | tee -a /etc/log-create-user.log
 echo -e "🔰OpenSSH     : 22" | tee -a /etc/log-create-user.log
