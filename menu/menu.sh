@@ -108,8 +108,8 @@ clear
 ###########- END COLOR CODE -##########
 tram=$( free -h | awk 'NR==2 {print $2}' )
 uram=$( free -h | awk 'NR==2 {print $3}' )
-ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
-CITY=$(curl -s ipinfo.io/city )
+ISP=$(cat /root/.isp)
+CITY=$(cat /root/.city)
 # Getting CPU Information
 cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
@@ -257,15 +257,15 @@ echo -e "${BICyan} ┌───────────────────�
 echo -e "${BICyan} │                  ${BIWhite}${UWhite}DANS STORE${NC}"
 echo -e "${BICyan} │"
 echo -e "${BICyan} │  ${BICyan}OS        :  ${BIYellow}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
-echo -e "${BICyan} │  ${BICyan}CPU       :  ${BIYellow}$cpu_usage${NC}"
+echo -e "${BICyan} │  ${BICyan}ISP       :  ${BIYellow}$ISP${NC}"
+echo -e "${BICyan} │  ${BICyan}CITY       :  ${BIYellow}$CITY${NC}"
+echo -e "${BICyan} │  ${BICyan}CPU       :  ${BIYellow}$cpu_usage1${NC}"
 echo -e "${BICyan} │  ${BICyan}NS        :  ${BIYellow}$(cat /root/nsdomain)${NC}"
 echo -e "${BICyan} │  ${BICyan}DOMAIN    :  ${BIYellow}$(cat /etc/xray/domain)${NC}"
 echo -e "${BICyan} │  ${BICyan}RAM       :  ${BIYellow}$totalram MB${NC}"
 echo -e "${BICyan} │  ${BICyan}SWAP RAM  :  ${BIYellow}$uram / $tram MB${NC}"
 echo -e "${BICyan} │  ${BICyan}IP-VPS    :  ${BIYellow}$IPVPS${NC}"
 echo -e "${BICyan} │  ${BICyan}REBOOT    :  ${BIYellow}00:00 ( Jam 12 malam )${NC}"
-echo -e "${BICyan} │  ${BICyan}WHATSAP   :  ${BIYellow}083896855080${NC}"
-echo -e "${BICyan} │  ${BICyan}DEVELOVER :  ${BIYellow}🇮🇩DANSVPN🇮🇩${NC}"
 echo -e "${BICyan} └─────────────────────────────────────────────────────┘${NC}"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}" 
 echo -e "${BICyan} │  ${BIYellow}SSH         VMESS           VLESS          TROJAN $NC" 
